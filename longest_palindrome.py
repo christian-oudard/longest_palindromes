@@ -1,7 +1,14 @@
 def fastLongestPalindromes(seq):
     """
-    Behaves identically to naiveLongestPalindrome (see below), but
+    Behaves identically to naiveLongestPalindromes (see below), but
     runs in linear time.
+
+    >>> fastLongestPalindromes('ababa')
+    [0, 1, 0, 3, 0, 5, 0, 3, 0, 1, 0]
+    >>> fastLongestPalindromes('yabbadabbadoo')
+    [0, 1, 0, 1, 0, 1, 4, 1, 0, 1, 0, 9, 0, 1, 0, 1, 6, 1, 0, 1, 0, 1, 0, 1, 2, 1, 0]
+    >>> max(fastLongestPalindromes('a' * 1000))
+    1000
     """
     seqLen = len(seq)
     l = []
@@ -116,7 +123,12 @@ def naiveLongestPalindromes(seq):
     // 2 - l[i] // 2. (// is integer division.)
 
     Example:
-    naiveLongestPalindrome('ababa') -> [0, 1, 0, 3, 0, 5, 0, 3, 0, 1]
+    >>> naiveLongestPalindromes('ababa')
+    [0, 1, 0, 3, 0, 5, 0, 3, 0, 1, 0]
+    >>> naiveLongestPalindromes('yabbadabbadoo')
+    [0, 1, 0, 1, 0, 1, 4, 1, 0, 1, 0, 9, 0, 1, 0, 1, 6, 1, 0, 1, 0, 1, 0, 1, 2, 1, 0]
+    >>> max(naiveLongestPalindromes('a' * 1000))
+    1000
 
     Runs in quadratic time.
     """
@@ -139,7 +151,3 @@ def naiveLongestPalindromes(seq):
         l.append(e - s)
 
     return l
-
-
-if __name__ == '__main__':
-    print naiveLongestPalindromes('a'*50)
